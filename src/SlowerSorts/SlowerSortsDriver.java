@@ -31,7 +31,7 @@ public class SlowerSortsDriver {
             .boxed()
             .toArray(Integer[]::new);
         System.out.println(Arrays.toString(numberArray));
-        SlowerSorts selectionSort = new SelectionSort();
+        SlowerSorts<Integer> selectionSort = new SelectionSort<>();
         selectionSort.sort(numberArray);
         System.out.println(Arrays.toString(numberArray));
 

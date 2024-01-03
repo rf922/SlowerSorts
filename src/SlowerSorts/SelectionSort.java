@@ -16,7 +16,7 @@ public class SelectionSort<T extends Comparable<T>> implements SlowerSorts<T> {
      * Sorts an array using selection sort. This method sorts the array
      * in-place, modifying the original array.
      *
-     * @param T[] array the array to be sorted.
+     * @param array the array to be sorted.
      */
     @Override
     public void sort(T[] array) {
