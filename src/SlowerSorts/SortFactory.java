@@ -19,14 +19,10 @@ public class SortFactory {
      */
     public static SlowerSorts<?> getSorter(SortType type) {
         switch (type) {
-            case SELECTION_SORT:
-                return new SelectionSort<>();
-            case INSERTION_SORT:
-                throw new IllegalArgumentException("Not Yet Implemented");
-            case SHELL_SORT:
-                throw new IllegalArgumentException("Not Yet Implemented");
-            default:
-                throw new IllegalArgumentException("Not Yet Implemented");
+            case SELECTION_SORT -> { return new SelectionSort<>(); }
+            case INSERTION_SORT -> { return new InsertionSort<>(); }
+            case SHELL_SORT -> { return new ShellSort<>(); }
+            default -> throw new IllegalArgumentException("Not Yet Implemented");
         }
     }
 

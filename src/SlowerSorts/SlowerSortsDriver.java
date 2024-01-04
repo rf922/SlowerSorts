@@ -7,8 +7,7 @@ package SlowerSorts;
 
 import java.util.Random;
 import java.util.stream.IntStream;
-import SlowerSorts.SlowerSorts;
-import SlowerSorts.SelectionSort;
+import SlowerSorts.SortFactory;
 import java.util.Arrays;
 
 /**
@@ -31,10 +30,9 @@ public class SlowerSortsDriver {
             .boxed()
             .toArray(Integer[]::new);
         System.out.println(Arrays.toString(numberArray));
-        SlowerSorts<Integer> selectionSort = new SelectionSort<>();
-        selectionSort.sort(numberArray);
+        SlowerSorts<Integer> slowSort = (SlowerSorts<Integer>) SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
+        slowSort.sort(numberArray);
         System.out.println(Arrays.toString(numberArray));
-
     }
 
 }
