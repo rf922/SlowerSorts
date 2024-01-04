@@ -10,21 +10,23 @@ package SlowerSorts;
  *
  * @param <T>
  */
-public class SelectionSort<T extends Comparable<T>> implements SlowerSorts<T> {
+public class SelectionSort<T extends Comparable<T>>{
 
     /**
      * Sorts an array using selection sort. This method sorts the array
      * in-place, modifying the original array.
      *
+     * @param <T>
      * @param array the array to be sorted.
      */
-    @Override
-    public void sort(T[] array) {
+    public static <T extends Comparable<T>> void sort(T[] array) {
         for (int currentIndex = 0; currentIndex < array.length; currentIndex++) {//for each element
             int minIndex = getIndexOfSmallest(array, currentIndex, array.length); //retrieve minimum element
-            swap(array, currentIndex, minIndex); //swap it into place
-        }
+            T temp = array[currentIndex];
+            array[currentIndex] = array[minIndex];
+            array[minIndex] = temp;        }
     }
+
 
     /**
      * Helper method for selection sort. This method finds the index of the
