@@ -30,7 +30,7 @@ public class SlowerSortsDriver {
             .boxed()
             .toArray(Integer[]::new);
         System.out.println(Arrays.toString(numberArray));
-        SlowerSorts<Integer> slowSort = (SlowerSorts<Integer>) SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
+        SlowerSorts<Integer> slowSort = SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
         slowSort.sort(numberArray);
         System.out.println(Arrays.toString(numberArray));
     }
