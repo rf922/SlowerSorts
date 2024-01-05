@@ -31,7 +31,13 @@ public class SlowerSortsDriver {
             .toArray(Integer[]::new);
         System.out.println(Arrays.toString(numberArray));
         SlowerSorts<Integer> slowSort = SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
+//        slowSort.sort(numberArray);
+//        System.out.println(Arrays.toString(numberArray));                
+        
+        
+        slowSort = SortFactory.getSorter(SortFactory.SortType.INSERTION_SORT);
         slowSort.sort(numberArray);
+        
         System.out.println(Arrays.toString(numberArray));
     }
 

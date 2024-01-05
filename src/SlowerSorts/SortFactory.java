@@ -21,7 +21,7 @@ public class SortFactory {
     public static <T extends Comparable<T>> SlowerSorts<T> getSorter(SortType type) {
         switch (type) {
             case SELECTION_SORT -> { return SelectionSort::sort; }
-            case INSERTION_SORT -> { return new InsertionSort<>(); }
+            case INSERTION_SORT -> { return InsertionSort::sort; }
             case SHELL_SORT -> { return new ShellSort<>(); }
             default -> throw new IllegalArgumentException("Unknown type passed");
         }
