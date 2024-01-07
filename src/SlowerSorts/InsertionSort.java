@@ -19,6 +19,7 @@ public class InsertionSort<T extends Comparable<T>> {
      */
     public static <T extends Comparable<T>> void sort(T[] array) {
 
+        // assume the first index is sorted, then pick and place each of the remaining elements
         for (int unsortedIndex = 1; unsortedIndex < array.length; unsortedIndex++) {
             T unsortedElement = array[unsortedIndex];
             int lowestSortedIndex = 0;
@@ -29,6 +30,7 @@ public class InsertionSort<T extends Comparable<T>> {
 
     /**
      * 
+     * Inserts an element into its correct position within the sorted array
      * @param <T>
      * @param unsortedElement
      * @param array
@@ -37,8 +39,10 @@ public class InsertionSort<T extends Comparable<T>> {
      */
     private static <T extends Comparable<T>> void insertInOrder(T unsortedElement, T[] array, int lowestSortedIndex, int highestSortedIndex) {
         int index = highestSortedIndex;
+        
+        // move down the array until the correct pos is found
         while (index >= lowestSortedIndex && unsortedElement.compareTo(array[index]) < 0) {
-            array[index + 1] = array[index]; // make space
+            array[index + 1] = array[index]; // shift right
             index--;
         }
         array[index + 1] = unsortedElement;

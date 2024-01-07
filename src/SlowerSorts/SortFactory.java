@@ -22,7 +22,9 @@ public class SortFactory {
         switch (type) {
             case SELECTION_SORT -> { return SelectionSort::sort; }
             case INSERTION_SORT -> { return InsertionSort::sort; }
-            case SHELL_SORT -> { return new ShellSort<>(); }
+            case SHELL_SORT -> { return ShellSort::sort; }
+//            case BUBBLE_SORT -> { return BubbleSort::sort; }
+            
             default -> throw new IllegalArgumentException("Unknown type passed");
         }
     }
@@ -33,6 +35,7 @@ public class SortFactory {
     public enum SortType {
         SELECTION_SORT,
         INSERTION_SORT,
-        SHELL_SORT        
+        //BUBBLE_SORT,
+        SHELL_SORT 
     }
 }

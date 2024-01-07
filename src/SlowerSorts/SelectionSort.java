@@ -22,6 +22,7 @@ public class SelectionSort<T extends Comparable<T>>{
     public static <T extends Comparable<T>> void sort(T[] array) {
         for (int currentIndex = 0; currentIndex < array.length; currentIndex++) {//for each element
             int minIndex = getIndexOfSmallest(array, currentIndex, array.length); //retrieve minimum element
+            //swap the element into lplace
             T temp = array[currentIndex];
             array[currentIndex] = array[minIndex];
             array[minIndex] = temp;        }
@@ -41,7 +42,9 @@ public class SelectionSort<T extends Comparable<T>>{
     private static <T extends Comparable<T>> int getIndexOfSmallest(T[] array, int firstPosition, int lastPosition) {
         T min = array[firstPosition];
         int indexOfMin = firstPosition;
+        
         for (int index = firstPosition + 1; index < lastPosition; index++) {
+            //compare the elements and update if smaller than current min
             if (array[index].compareTo(min) < 0) {
                 min = array[index];
                 indexOfMin = index;
