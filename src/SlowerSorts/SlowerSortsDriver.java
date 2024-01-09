@@ -7,8 +7,6 @@ package SlowerSorts;
 
 import java.util.Random;
 import java.util.stream.IntStream;
-import SlowerSorts.SortFactory;
-import java.util.Arrays;
 
 /**
  * The driver for demoing each of the sorting algorithm
@@ -29,7 +27,8 @@ public class SlowerSortsDriver {
             .limit(arraySize)
             .boxed()
             .toArray(Integer[]::new);
-        Integer[] numberArray2 = numberArray.clone(); 
+        Integer[] numberArray2 = numberArray.clone();
+        Integer[] numberArray3 = numberArray.clone();
 
         /* Selection Sort */
         SlowerSorts<Integer> slowSort = SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
@@ -45,14 +44,21 @@ public class SlowerSortsDriver {
         endTime = System.currentTimeMillis();
         long insertionSortTime = endTime - startTime;
 
-        // System.out.println(Arrays.toString(numberArray));
-        // System.out.println(Arrays.toString(numberArray2));
+        /* Shell Sort */
+        slowSort = SortFactory.getSorter(SortFactory.SortType.SHELL_SORT);
+        startTime = System.currentTimeMillis();
+        slowSort.sort(numberArray3);
+        endTime = System.currentTimeMillis();
+        long shellSortTime = endTime - startTime;
 
-        // Displaying the runtimes in a table format
-        System.out.println("Sort Method    | Runtime (ms)");
-        System.out.println("-----------------------------");
-        System.out.printf("Selection Sort | %12d\n", selectionSortTime);
-        System.out.printf("Insertion Sort | %12d\n", insertionSortTime);
+        System.out.println("+--------------------------------------+");
+        System.out.println(" Sort Method          Runtime (ms)   ");
+        System.out.println("+--------------------------------------+");
+        System.out.println("Selection Sort Runtime: " + selectionSortTime + " ms");
+        System.out.println("Insertion Sort Runtime: " + insertionSortTime + " ms");
+        System.out.println("Shell Sort Runtime: " + shellSortTime + " ms");
+        System.out.println("+--------------------------------------+");
+
     }
 
 }
