@@ -5,6 +5,7 @@
  */
 package SlowerSorts;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -29,7 +30,8 @@ public class SlowerSortsDriver {
             .toArray(Integer[]::new);
         Integer[] numberArray2 = numberArray.clone();
         Integer[] numberArray3 = numberArray.clone();
-
+        Integer[] numberArray4 = numberArray.clone();
+        
         /* Selection Sort */
         SlowerSorts<Integer> slowSort = SortFactory.getSorter(SortFactory.SortType.SELECTION_SORT);
         long startTime = System.currentTimeMillis();
@@ -50,6 +52,15 @@ public class SlowerSortsDriver {
         slowSort.sort(numberArray3);
         endTime = System.currentTimeMillis();
         long shellSortTime = endTime - startTime;
+        
+        /* Bubble Sort */
+        slowSort = SortFactory.getSorter(SortFactory.SortType.BUBBLE_SORT);
+        startTime = System.currentTimeMillis();
+        slowSort.sort(numberArray4);
+        //System.out.println(Arrays.toString(numberArray4));
+        endTime = System.currentTimeMillis();
+        long bubbleSortTime = endTime - startTime;
+
 
         System.out.println("+--------------------------------------+");
         System.out.println(" Sort Method          Runtime (ms)   ");
@@ -57,6 +68,7 @@ public class SlowerSortsDriver {
         System.out.println("Selection Sort Runtime: " + selectionSortTime + " ms");
         System.out.println("Insertion Sort Runtime: " + insertionSortTime + " ms");
         System.out.println("Shell Sort Runtime: " + shellSortTime + " ms");
+        System.out.println("Bubble Sort Runtime: " + bubbleSortTime + " ms");
         System.out.println("+--------------------------------------+");
 
     }
